@@ -1,0 +1,46 @@
+{
+  "search": {
+    "message": "Search",
+    "description": "Displayed in the main context menu, before the search string"
+  },
+  "folderNotFoundTitle": {
+    "message": "$EXT_NAME$ ERROR!",
+    "description": "Title of the error notification displayed if main folder for context bookmarks is not found",
+    "placeholders": {
+        "EXT_NAME": {
+          "content": "$1",
+          "example": "Context Bookmarks"
+        }
+      }
+  },
+  "folderNotFoundMessage": {
+    "message": "Folder not found!\r\n\r\nNo folder that matches the title \"$MAIN_FOLDER_NAME$\" was found in the bookmarks.\r\n\r\nMake sure, that this folder exists, or change the folder title in the extensions settings.",
+    "description": "The error notification displayed if main folder for context bookmarks is not found",
+    "placeholders": {
+      "MAIN_FOLDER_NAME": {
+        "content": "$1",
+        "example": "Context Bookmarks"
+      }
+    }
+  },
+  "childrenNotFoundTitle": {
+    "message": "$EXT_NAME$ ERROR!",
+    "description": "Title of the error notification displayed if main folder for context bookmarks contains no bookmarks",
+    "placeholders": {
+        "EXT_NAME": {
+          "content": "$1",
+          "example": "Context Bookmarks"
+        }
+      }
+  },
+  "childrenNotFoundMessage": {
+    "message": "Bookmarks not found!\r\n\r\nFirst folder that matches the title \"$MAIN_FOLDER_NAME$\" contains no bookmarks!\r\n\r\nNo menu items were created.",
+    "description": "The error notification displayed if main folder for context bookmarks contains no bookmarks",
+    "placeholders": {
+      "MAIN_FOLDER_NAME": {
+        "content": "$1",
+        "example": "Context Bookmarks"
+      }
+    }
+  }
+}

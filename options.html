@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <form id="settings-form">
+      <p>
+        <label for="main-bookmarks-folder-name"><h4>Main bookmarks folder name</h4></label
+        ><br />
+        <input type="text" size="50" id="main-bookmarks-folder-name" /><br />
+      </p>
+      <p>
+        <label for="substitute-regex"><h4>Substituted regular expression</h4></label
+        ><br />
+        <input type="text" size="50" id="substitute-regex" /><br />
+      </p>
+      <button type="submit">Save</button>
+    </form>
+    <p>
+    The extension will recreate the bookmark folder structure under the <b>Main bookmarks folder</b>. Only the <i>first</i> folder with matching name is taken into account.
+    </p>
+    <p>
+    Anny occurence of the <b>Substituted regular expression</b> in the URLs of bookmarks will be replaced with the selection. For example "http://www.example.org/?search=%s" becomes "http://www.example.org/?search=[selected text]", where "[selected text]" is whatever is currently selected.
+    <br/>
+    The default value "%s" corresponds to the way that bookmark keywords work in Firefox. You can read more about this <a href="https://www-archive.mozilla.org/docs/end-user/keywords.html">here</a>.
+    </p>
+    <h3>How to create a "context menu bookmark":</h3>
+    <p>
+      <ul>
+        <li>Create a bookmarks folder with the name indicated in the <b>Main bookmarks folder</b> setting (by default "Context Bookmarks")</li>
+        <li>Find a webpage with a search function e.g. "https://www.google.com/"</li>
+        <li>Use the search function on the webpage to find any string e.g. "searching"</li>
+        <li>Bookmark the result, and put the bookmark in the folder from the first step</li>
+        <li>Edit the bookmark address:
+          <ul>
+            <li>If the searched string was "searching", the URL should look like: "https://www.google.com/search?q=searching"</li>
+            <li>Change the URL to "https://www.google.com/search?q=[substituted regular expression]" by replacing "searching" with <b>Substituted regular expression</b></li>
+            <li>For the default value of <b>Substituted regular expression</b> (i.e. "%s"), the URL should be changed to "https://www.google.com/search?q=%s"</li>
+            <li>Save the bookmark</li>
+            <li>The bookmark will now appear in the context menu</li>
+          </ul>
+        </li>
+        <li>The <b>Substituted regular expression</b> can be put anywhere in the URL, multiple times, or even not at all (in that case the selected text will not be passed to the URL)</li>
+        <li>Try bookmarking search engines, dictionaries, code repositories etc.</li>
+        <li>Any subfolder structure under <b>Main bookmarks folder</b> will be reflected in the context menu</li>
+        <li>The bookmarks still behave, like any other bookmark, in particular a <a href="https://www-archive.mozilla.org/docs/end-user/keywords.html">keyword</a> may be added to them</li>
+      </ul>
+    </p>
+
+    <h3>How to use a "context menu bookmark":</h3>
+    <p>
+      <ul>
+        <li>Select a text on a webpage</li>
+        <li>Right click anywhere</li>
+        <li>Use the context menu to select any option under "Search [selection]", where [selection] is the selected text</li>
+      </ul>
+    </p>
+
+
+    <script src="options.js"></script>
+  </body>
+</html>

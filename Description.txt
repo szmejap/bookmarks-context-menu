@@ -1,0 +1,11 @@
+The extension will recreate the structure of a single bookmark folder (selected in configuration options) in a selection context menu. As a result, all bookmarks in the folder will become available under the right-click menu (i.e. context menu). Selected text can be passed to bookmarks to enable searching for the selected string under a given bookmarks address.
+
+The extension essentially substitutes a (configurable) string of characters (a regular expression) in any bookmark under the configured folder. For example "http://www.example.org/?search=%s" becomes "http://www.example.org/?search=[selected text]", where "[selected text]" is whatever is currently selected ('%s' is the default substituted text).
+
+With it you can define custom search addresses in multilingual dictionaries, news sites, stock information sites, or simply any search engine, without the need to configure Firefox search. Simply drop a bookmark in the folder, change the part of the URL that contains the search string, and you're all set.
+
+Folder structure is reflected, so any sub-folders will show up, as sub-menus.
+
+To start, simply create a bookmark folder called "Context Bookmarks" anywhere, and put a bookmark pointing to "https://duckduckgo.com/?q=%s" and named "DuckDuckGo" in that folder. Next, select any text, right-click, and use the new "DuckDuckGo" context item under the "Search ..." context menu folder.
+
+See addon options for more details.
