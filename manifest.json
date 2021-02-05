@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Selection Context Menu from Bookmarks",
-  "version": "1.0",
+  "version": "1.0.1",
   "description": "Creates a selection menu item from bookmarks. Selected content is passed to the bookmarks URLs to enable search in any bookmarked webpage. See options for details.",  
   "browser_specific_settings": {
     "gecko": {

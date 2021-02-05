@@ -15,9 +15,6 @@ function onCreated(menuItemId) {
       `Error when creating menu item ${menuItemId}: ${browser.runtime.lastError}`
     );
   }
-  // else {
-  //   console.log(`Menu item ${menuItemId} created successfully`);
-  // }
 }
 
 function onRemoved() {
@@ -63,9 +60,15 @@ function onFoundMainBookmarkFolder(bookmarkItems) {
         browser.notifications.create(
           (options = {
             type: "basic",
-            title: browser.i18n.getMessage("folderNotFoundTitle", EXTENSION_NAME),
+            title: browser.i18n.getMessage(
+              "folderNotFoundTitle",
+              EXTENSION_NAME
+            ),
             iconUrl: "icon96.png",
-            message: browser.i18n.getMessage("folderNotFoundMessage", mainFolderName),
+            message: browser.i18n.getMessage(
+              "folderNotFoundMessage",
+              mainFolderName
+            ),
           })
         );
       }
@@ -87,9 +90,15 @@ function onFolderSubtree(subTree, parentId) {
             (options = {
               type: "basic",
               title: `${EXTENSION_NAME} ERROR!`,
-              title: browser.i18n.getMessage("childrenNotFoundTitle", EXTENSION_NAME),
+              title: browser.i18n.getMessage(
+                "childrenNotFoundTitle",
+                EXTENSION_NAME
+              ),
               iconUrl: "icon96.png",
-              message: browser.i18n.getMessage("childrenNotFoundMessage", mainFolderName),
+              message: browser.i18n.getMessage(
+                "childrenNotFoundMessage",
+                mainFolderName
+              ),
             })
           );
         }
@@ -144,28 +153,15 @@ function onFolderSubtree(subTree, parentId) {
 }
 
 async function recreateAllDefaultSettingsFromStorage() {
-  let folderNameObj = await recreateDefaultSettingFromStorage(
-    "folderName",
-    DEFAULT_MAIN_BOOKMARK_FOLDER_NAME
-  );
-  let regexObj = await recreateDefaultSettingFromStorage(
-    "regex",
-    DEFAULT_REGEX
-  );
-  let settings = Object.assign(folderNameObj, regexObj);
+  let settings = await browser.storage.sync.get({
+    "folderName": DEFAULT_MAIN_BOOKMARK_FOLDER_NAME,
+    "regex": DEFAULT_REGEX
+  });
+
   urlSubstitutionRegexp = new RegExp(settings.regex, "g");
   mainFolderName = settings.folderName;
-  return settings;
-}
 
-async function recreateDefaultSettingFromStorage(storageKey, defaultValue) {
-  let storageValue = defaultValue;
-  try {
-    storageValue = await browser.storage.sync.get(storageKey);
-  } catch (e) {
-    browser.storage.sync.set({ storageKey: defaultValue });
-  }
-  return storageValue;
+  return settings;
 }
 
 // Remove and create all menu items again

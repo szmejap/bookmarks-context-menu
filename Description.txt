@@ -8,4 +8,6 @@ Folder structure is reflected, so any sub-folders will show up, as sub-menus.
 
 To start, simply create a bookmark folder called "Context Bookmarks" anywhere, and put a bookmark pointing to "https://duckduckgo.com/?q=%s" and named "DuckDuckGo" in that folder. Next, select any text, right-click, and use the new "DuckDuckGo" context item under the "Search ..." context menu folder.
 
-See addon options for more details.
+See add-on options for more details.
+
+Source code available here: https://github.com/szmejap/bookmarks-context-menu
